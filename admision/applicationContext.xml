@@ -12,14 +12,14 @@
            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
-               
-     <context:annotation-config/>
+           
+    <context:annotation-config/>
 
-     <context:component-scan base-package="ar.com.admision" />
+     <context:component-scan base-package="com.globallogic.capacitaciones.hibernate" />
 
      <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 	   <property name="dataSource" ref="dataSource"/>
-	   <property name="packagesToScan" value="ar.com.admision.dominio"/>
+	   <property name="packagesToScan" value="com.globallogic.capacitaciones.hibernate.domain"/>
 	   
 	   <property name="hibernateProperties">
 	   		<props>
@@ -60,7 +60,5 @@
     		</list>
     	</property>
     </bean>
-    
 
-    
 </beans>
