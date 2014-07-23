@@ -1,13 +1,17 @@
 package ar.com.admision.dao;
 
-public interface DAO<T> {
-	
-	T get(Long id);
+import java.io.Serializable;
 
-	Long save(T entity);
-
+public interface DAO<T,ID extends Serializable> {
 	
+
 	void delete(T entity);
+
+	T save(T entity);
+
+	T update(T entity);
+	
+	T findById(ID key);
 
 }
 

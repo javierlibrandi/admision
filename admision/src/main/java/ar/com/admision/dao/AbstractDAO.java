@@ -1,39 +1,56 @@
 package ar.com.admision.dao;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
 
-public abstract class AbstractDAO<T>  implements DAO<T>{
-	
-	private SessionFactory sessionFactory;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
-	@Autowired
-	protected void setSessionFactory(SessionFactory sessionFactory){
-		this.sessionFactory  = sessionFactory;
-	}	
+
+/**
+ * http://sobrejava.com/articulos/ejemplo-de-dao-generico-con-jpa
+ * http://damianmigo.wordpress.com/2010/07/07/tutorial-jpa-hibernate-spring-orm-usando-eclipse/
+ * @author B027208
+ *
+ * @param <T>
+ * @param <ID>
+ */
+public abstract class AbstractDAO<T, ID extends Serializable>  implements DAO<T,ID>{
 	
-	protected Session currentSession(){
-		return this.sessionFactory.getCurrentSession();
+	@PersistenceContext
+	protected EntityManager em;
+	EntityManagerFactory emf;
+	
+	protected Class<T> classType;
+
+	   public AbstractDAO() {
+	        super();
+	        this.emf = Persistence.createEntityManagerFactory("admision");
+	        this.em = emf.createEntityManager();
+	        this.classType = (Class<T>)getParameterClass(getClass(), 0);
+	    }
+	
+	
+	    public T save(T entity) {
+	        this.em.persist(entity);
+	        return entity;
+	    }
+
+	    public T update(T entity) {
+	        return this.em.merge(entity);
+	    }
+
+	    public void delete(T entity) {
+	        this.em.remove(entity);
+	    }
+
+	    public T findById(ID key) {
+	        return this.em.find(classType, key);
+	    }
+
+	    private static Class<?> getParameterClass(Class<?> clazz, int index) {
+	        return (Class<?>)(((ParameterizedType)clazz.getGenericSuperclass()).getActualTypeArguments()[index]);
+	    }
 	}
-	
-	public T get(Long id) {	
-		return (T) currentSession().load(getEntityClass(), id);
-	}
-
-	
-	public Long save(T entity) {	
-		return (Long) currentSession().save(entity);
-	}
-
-	
-	
-	public void delete(T entity) {	
-		currentSession().delete(entity);
-	}
-
-
-	
-	public abstract Class<T> getEntityClass();
-}
-

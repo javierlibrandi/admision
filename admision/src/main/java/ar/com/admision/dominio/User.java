@@ -7,8 +7,18 @@ import javax.persistence.Entity;
 @Entity
 public class User extends PersistentObject {
 
+	public static final String SEVERIDAD_INFO = "INFO";
+
+    public static final String SEVERIDAD_ERROR = "ERROR";
+
+    public static final String SEVERIDAD_DEBUG = "DEBUG";
+
+    public static final String SEVERIDAD_FATAL = "FATAL";
+	
+	@Column(name = "userName", nullable = false) 
 	private String userName;
 
+	@Column(name = "password", nullable = false) 
 	private String password;
 
 	public User() {
