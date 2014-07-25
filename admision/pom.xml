@@ -73,11 +73,14 @@
 		<!--<artifactId>hibernate-entitymanage</artifactId> Para hacer una aplicacion 
 			JPA -->
 		<!-- <version>4.3.6.Final</version> </dependency> -->
+<<<<<<< HEAD
 
 		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId> --> <!-- Para hacer aplicaciones con Hibernate Nativo -->
 		<!-- <artifactId>hibernate-entitymanage</artifactId> Para hacer una aplicacion 
 			JPA -->
 		<!-- <version>4.1.1.Final</version> </dependency> -->
+=======
+>>>>>>> branch 'master' of https://github.com/javierlibrandi/admision.git
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
