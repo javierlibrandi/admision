@@ -67,14 +67,24 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- <dependency> <groupId>org.hibernate</groupId> -->
+		<!--<artifactId>hibernate-core</artifactId>Para hacer aplicaciones con 
+			Hibernate Nativo -->
+		<!--<artifactId>hibernate-entitymanage</artifactId> Para hacer una aplicacion 
+			JPA -->
+		<!-- <version>4.3.6.Final</version> </dependency> -->
+
+		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId> --> <!-- Para hacer aplicaciones con Hibernate Nativo -->
+		<!-- <artifactId>hibernate-entitymanage</artifactId> Para hacer una aplicacion 
+			JPA -->
+		<!-- <version>4.1.1.Final</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId> <!-- Para hacer aplicaciones con Hibernate Nativo -->
-			<!-- <artifactId>hibernate-entitymanage</artifactId> Para hacer una aplicacion 
-				JPA -->
-			<version>4.1.1.Final</version>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.6.Final</version>
 		</dependency>
+
 
 		<dependency>
 			<!-- Spring tambien necesita de esta dependencia para generar proxis y 
@@ -115,11 +125,11 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.cubika</groupId>
 			<artifactId>devsupport</artifactId>
 			<version>1.0.15</version>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 </project>

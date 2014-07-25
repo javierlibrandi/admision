@@ -1,8 +1,11 @@
 package ar.com.admision.dao;
 
 import java.io.Serializable;
+
 import javax.persistence.Query;
+
 import org.springframework.stereotype.Repository;
+
 import ar.com.admision.dominio.User;
 
 @Repository
@@ -23,6 +26,12 @@ public class UserDAOImpl extends AbstractDAO<User,Serializable> implements UserD
 
 	public Class<User> getEntityClass() {
 		return User.class;
+	}
+
+	@Override
+	public User get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
