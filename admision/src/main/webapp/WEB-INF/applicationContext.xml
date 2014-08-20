@@ -13,17 +13,19 @@
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
+	 <context:annotation-config/>
+	
 	<context:component-scan base-package="com.mkyong" />
 	
 	
-     <bean id="sessionFactory" 
+    <bean id="sessionFactory" 
      class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 	   <property name="dataSource" ref="dataSource"/>
 	   <property name="packagesToScan" value="com.mkyong.domain"/>
 	   
 	   <property name="hibernateProperties">
 	   		<props>
-	 			<!--  <prop key="hibernate.show_sql">true</prop> lo manejo desde el log4j.porperties -->
+	 			 <prop key="hibernate.show_sql">true</prop> <!-- lo manejo desde el log4j.porperties -->
 	 			<prop key="hibernate.format_sql">true</prop>
 	 			<prop key="hibernate.use_sql_comments">false</prop>
 
@@ -44,7 +46,7 @@
        <property name="sessionFactory"><ref local="sessionFactory"/></property>
     </bean>
 
-	<tx:annotation-driven/>
+	<tx:annotation-driven/> 
     
     
  </beans>
