@@ -24,7 +24,7 @@
 		<property name="packagesToScan" value="ar.com.jsf.domain" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.show_sql">true</prop> <!-- lo manejo desde el log4j.porperties -->
+				<!-- <prop key="hibernate.show_sql">true</prop> lo manejo desde el log4j.porperties -->
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.use_sql_comments">false</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
