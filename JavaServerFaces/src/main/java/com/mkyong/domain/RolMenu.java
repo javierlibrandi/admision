@@ -19,10 +19,10 @@ import org.hibernate.annotations.CascadeType;
 @Entity
 
 public class RolMenu extends PersistentObject {
-//	@OneToMany
+@ManyToOne
 //	@Cascade(CascadeType.SAVE_UPDATE)
 	private Menu menu;
-	@OneToMany
+@ManyToOne
 //	@Cascade(CascadeType.SAVE_UPDATE)
 	private Rol rol;
 

@@ -23,7 +23,7 @@ public class Usuario extends PersistentObject {
 
 	
 	private String usuario;
-	@OneToMany
+	@ManyToOne
 	private Rol rol;
 	private String clave;
 	private String email;

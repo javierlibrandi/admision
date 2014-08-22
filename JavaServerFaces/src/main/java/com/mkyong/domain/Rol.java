@@ -2,6 +2,7 @@ package com.mkyong.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -12,11 +13,7 @@ public class Rol extends PersistentObject {
 	private String nombre;
 	private String descripcion;
 	private String estado;
-	@ManyToOne
-	@Cascade(CascadeType.SAVE_UPDATE)
-	private Usuario usuario;
-	@ManyToOne
-	private RolMenu rolMenu;
+
 	
 
 	public String getNombre() {
