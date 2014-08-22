@@ -8,7 +8,7 @@
 
 	<context:annotation-config />
 
-	<context:component-scan base-package="com.mkyong" />
+	<context:component-scan base-package="ar.com.jsf" />
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -21,23 +21,25 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan"
-			value="com.mkyong.domain" />
+		<property name="packagesToScan" value="ar.com.jsf.domain" />
 		<property name="hibernateProperties">
 			<props>
-				<!-- <prop key="hibernate.show_sql">true</prop> lo manejo desde el log4j.porperties -->
+				<prop key="hibernate.show_sql">true</prop> <!-- lo manejo desde el log4j.porperties -->
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.use_sql_comments">false</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	</bean>
-<tx:annotation-driven/>
- <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-       <property name="sessionFactory"><ref local="sessionFactory"/></property>
-    </bean>
+	<tx:annotation-driven />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
 
-	
+
 
 </beans>

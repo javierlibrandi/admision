@@ -1,4 +1,4 @@
-package com.mkyong.domain;
+package ar.com.jsf.domain;
 // Generated 21-ago-2014 23:32:20 by Hibernate Tools 3.6.0
 
 

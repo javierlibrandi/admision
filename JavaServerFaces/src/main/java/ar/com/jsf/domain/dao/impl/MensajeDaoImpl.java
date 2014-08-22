@@ -1,4 +1,4 @@
-package com.mkyong.domain.dao.impl;
+package ar.com.jsf.domain.dao.impl;
 
 import java.io.Serializable;
 
@@ -8,8 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.mkyong.domain.Mensaje;
-import com.mkyong.domain.dao.MensajeDao;
+import ar.com.jsf.domain.Mensaje;
+import ar.com.jsf.domain.dao.MensajeDao;
 
 @Repository
 public class MensajeDaoImpl implements MensajeDao, Serializable {

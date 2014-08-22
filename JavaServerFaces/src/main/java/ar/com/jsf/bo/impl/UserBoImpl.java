@@ -1,14 +1,13 @@
-package com.mkyong.user.bo.impl;
+package ar.com.jsf.bo.impl;
 
 import java.io.Serializable;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mkyong.domain.dao.MensajeDao;
-import com.mkyong.user.bo.UserBo;
+import ar.com.jsf.bo.UserBo;
+import ar.com.jsf.domain.dao.MensajeDao;
 
 @Service
 @Transactional

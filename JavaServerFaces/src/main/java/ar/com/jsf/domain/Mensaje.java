@@ -1,4 +1,4 @@
-package com.mkyong.domain;
+package ar.com.jsf.domain;
 
 import javax.persistence.Entity;
 

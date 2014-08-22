@@ -1,6 +1,8 @@
-package com.mkyong;
+package ar.com.jsf.beans;
 
 import java.io.Serializable;
+
+
 
 
 
@@ -10,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.mkyong.user.bo.UserBo;
+import ar.com.jsf.bo.UserBo;
 
 
 @Component

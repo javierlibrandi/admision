@@ -21,8 +21,26 @@
  
   <!-- Welcome page -->
   <welcome-file-list>
-    <welcome-file>default.jsf</welcome-file>
+    <welcome-file>default.xhtml</welcome-file>
   </welcome-file-list>
  
   <!-- JSF Mapping -->
+  
+ <context-param>  
+    <param-name>primefaces.THEME</param-name>  
+    <param-value>blitzer</param-value>  
+</context-param> 
+
+<!-- Start JSF -->
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- JSF URL mapping -->
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
 </web-app>
