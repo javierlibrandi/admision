@@ -27,15 +27,20 @@ public class UsuarioBoImpl implements UsuarioBo,Serializable {
 	private Usuario usuario;
 	
 	@Override
-	public boolean ValidarUsuario(String username, String password) {
-		this.usuario = usuarioDao.bucarUsuarioPorNamePassword(username,password);
+	public boolean ValidarUsuario(String usuario, String clave) {
+		this.usuario = usuarioDao.findByUsuario(usuario);
 		
-		if (this.usuario!=null){
+		if (this.usuario != null && this.usuario.getClave().equals(clave)){
 			return true;
 		}
+		
 		return false;
 	}
 
+	public Usuario getUsuario(){
+		return this.usuario;
+	}
+	
 	public void setUsuarioDao(UsuarioDao usuarioDao) {
 		this.usuarioDao = usuarioDao;
 	}

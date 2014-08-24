@@ -6,6 +6,8 @@ import ar.com.jsf.domain.Usuario;
 
 public interface UsuarioDao extends Dao<Usuario> {
 
-	Usuario bucarUsuarioPorNamePassword(String username, String password);
+	Usuario findByUsuario(String usuario);
+//	Usuario findByUsurio(Usuario usuario);
+//	Usuario	login(Usuario ususuario);
 
 }

@@ -22,7 +22,7 @@ public class UserLoginView implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
-	
+
 	@Autowired
 	private UsuarioBo usuarioBo;
 
@@ -50,21 +50,25 @@ public class UserLoginView implements Serializable {
 		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage message = null;
 		boolean loggedIn = false;
-
+		String ruta = "";
 		loggedIn = usuarioBo.ValidarUsuario(this.username, this.password);
 
 		if (loggedIn) {
-			loggedIn = true;
-			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome",
-					username);
+			FacesContext.getCurrentInstance().getExternalContext()
+					.getSessionMap()
+					.put("usuario", usuarioBo.getUsuario().getUsuario());
+			message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+					"Bienvenido", username);
+			ruta = "views/menu.xhtml";
 		} else {
-			loggedIn = false;
+
 			message = new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"Loggin Error", "Invalid credentials");
+					"Loggin Error", "Usuario y/o Cleve es incorrecto");
 		}
 
 		FacesContext.getCurrentInstance().addMessage(null, message);
 		context.addCallbackParam("loggedIn", loggedIn);
+		context.addCallbackParam("ruta", ruta);
 	}
 
 }

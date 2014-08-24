@@ -15,14 +15,12 @@ import ar.com.jsf.domain.dao.UsuarioDao;
 public class UsuarioDaoImpl extends AbstractDao<Usuario> implements UsuarioDao {
 
 	@Override
-	public Usuario bucarUsuarioPorNamePassword(String username, String password) {
-		String strQuery = "from Usuario u where u.usuario = :userName and "
-				+ "u.clave = :password";
+	public Usuario findByUsuario(String usuario) {
+		String strQuery = "from Usuario u where u.usuario = :userName";
 
 		Query query = currentSession().createQuery(strQuery);
 
-		query.setParameter("userName", username).setParameter("password",
-				password);
+		query.setParameter("userName", usuario);
 
 		return (Usuario) query.uniqueResult();
 	}
