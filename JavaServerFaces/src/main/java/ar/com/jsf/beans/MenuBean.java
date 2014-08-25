@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
@@ -12,7 +13,7 @@ import org.omg.CORBA.Request;
 import org.primefaces.context.RequestContext;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class MenuBean implements Serializable {
 	/**
 	 * 
