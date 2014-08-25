@@ -1,6 +1,7 @@
 package ar.com.jsf.bo.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,16 @@ public class UsuarioBoImpl implements UsuarioBo,Serializable {
 
 	private Usuario usuario;
 	
+	
+
+	public Usuario getUsuario(){
+		return this.usuario;
+	}
+	
+	public void setUsuarioDao(UsuarioDao usuarioDao) {
+		this.usuarioDao = usuarioDao;
+	}
+	
 	@Override
 	public boolean ValidarUsuario(String usuario, String clave) {
 		this.usuario = usuarioDao.findByUsuario(usuario);
@@ -37,13 +48,14 @@ public class UsuarioBoImpl implements UsuarioBo,Serializable {
 		return false;
 	}
 
-	public Usuario getUsuario(){
-		return this.usuario;
+
+
+	@Override
+	public List<Usuario> getListUsuarios() {
+		return usuarioDao.findAll();
+		
 	}
-	
-	public void setUsuarioDao(UsuarioDao usuarioDao) {
-		this.usuarioDao = usuarioDao;
-	}
+
 
 
 
