@@ -3,7 +3,7 @@ package ar.com.jsf.beans;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
-import ar.com.jsj.util.MyUtil;
+import ar.com.jsf.util.MyUtil;
 
 @ManagedBean
 @ApplicationScoped

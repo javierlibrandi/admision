@@ -31,10 +31,10 @@
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: #ffffff;
     padding: 5px;
-    min-height: 40px;
-    margin-top: 10px;
+    min-height: 1px;
+    margin-top: 2px;
 }
 
 .left_content {
@@ -61,4 +61,9 @@
   text-decoration : underline;
 }
 
+#container{
+	width: 1500px;
+	margin-left: auto;
+	margin-right: auto;
+}
 

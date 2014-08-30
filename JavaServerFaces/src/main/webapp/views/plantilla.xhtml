@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -7,27 +7,33 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
 
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Facelets Template</title>
-    </h:head>
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="#{appBean.baseUrl}css/default.css" rel="stylesheet"
+		type="text/css" />
+	<link href="#{appBean.baseUrl}css/cssLayout.css" rel="stylesheet"
+		type="text/css" />
+	<title>Facelets Template</title>
+</h:head>
 
-    <h:body>
+<h:body>
+	<div id="conteiner">
+		<div id="top"
+			class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
 
-        <div id="top" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
-        
-            <ui:insert name="top">Top</ui:insert>
-        </div>
-        <div class="menu">
+			<ui:insert name="top">
+				<p:clock pattern="dd/MM/yyyy HH:mm:ss" mode="server" />
+			</ui:insert>
+		</div>
+		<div class="menu">
 
 			<h:form id="formMenu">
-	 
+
 				<p:menubar>
 					<p:submenu label="Seguridad" icon="ui-icon-document">
 						<p:submenu label="Usuario" icon="ui-icon-contact">
-							<p:menuitem value="Abm de Usuarios" url="/views/seguridad/abmUsuarios.xhtml" />
+							<p:menuitem value="Abm de Usuarios"
+								url="/views/seguridad/abmUsuarios.xhtml" />
 							<p:menuitem value="Other" url="#" />
 						</p:submenu>
 						<p:menuitem value="Open" url="#" />
@@ -57,7 +63,7 @@
 							<p:menuitem value="Save" actionListener="#{menuBean.save}"
 								icon="ui-icon-disk" />
 							<p:menuitem value="Update" actionListener="#{menuBean.update}"
-								icon="ui-icon-arrowrefresh-1-w"  />
+								icon="ui-icon-arrowrefresh-1-w" />
 						</p:submenu>
 						<p:submenu label="Non-Ajax" icon="ui-icon-newwin">
 							<p:menuitem value="Delete" actionListener="#{menuBean.delete}"
@@ -65,25 +71,27 @@
 						</p:submenu>
 					</p:submenu>
 
-			
+
 					<f:facet name="options">
-					<p:commandButton type="submit" value="Salir"
-							icon="ui-icon-extlink" actionListener="#{menuBean.salir}"/>
+						<p:commandButton type="submit" value="Salir"
+							icon="ui-icon-extlink" action="#{loginBean.logout}" />
 					</f:facet>
 				</p:menubar>
 			</h:form>
 		</div>
-        
 
-        <div id="content" class="center_content">
-            <ui:insert name="content">Content</ui:insert>
-        </div>
 
-        <div id="bottom" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
-            <ui:insert name="bottom">&copy;Javier Librandi</ui:insert>
-            
-        </div>
+		<div id="content"
+			class="center_content ui-widget ui-widget-content ui-corner-all">
+			<ui:insert name="content">Content</ui:insert>
+		</div>
 
-    </h:body>
+		<div id="bottom"
+			class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all">
+			<ui:insert name="bottom">&copy;Javier Librandi</ui:insert>
+
+		</div>
+	</div>
+</h:body>
 
 </html>

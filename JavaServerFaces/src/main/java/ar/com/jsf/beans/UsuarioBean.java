@@ -4,18 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.CellEditEvent;
-import org.primefaces.event.RowEditEvent;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import ar.com.jsf.bo.UsuarioBo;
@@ -52,7 +45,6 @@ public class UsuarioBean implements Serializable {
 	}
 	
 	
-	
 	//
 //	public void onRowEdit(RowEditEvent event) {
 //		FacesMessage msg = new FacesMessage("Car Edited",
@@ -83,5 +75,9 @@ public class UsuarioBean implements Serializable {
 					"Cell Changed", "Old: " + oldValue + ", New:" + newValue);
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 		}
+	}
+	
+	public void btnBorrarUsuario(){
+		
 	}
 }

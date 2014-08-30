@@ -1,4 +1,4 @@
-package ar.com.jsj.util;
+package ar.com.jsf.util;
 
 public class MyUtil {
 	

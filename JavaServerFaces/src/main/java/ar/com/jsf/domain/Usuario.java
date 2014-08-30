@@ -31,26 +31,13 @@ public class Usuario extends PersistentObject {
 	private String usuarioCreacion;
 	private Date fechaCreacion;
 	private String usuarioModificacion;
-	private String fechaModificacion;
+	private Date fechaModificacion;
 
 
-
-	@Column(name = "usuario", unique = true, nullable = false, length = 45)
-	public String getUsuario() {
-		return this.usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
 
 	@Column(name = "clave", unique = true, nullable = false, length = 45)
 	public String getClave() {
 		return this.clave;
-	}
-
-	public void setClave(String clave) {
-		this.clave = clave;
 	}
 
 	@Column(name = "email", length = 45)
@@ -58,26 +45,9 @@ public class Usuario extends PersistentObject {
 		return this.email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	@Column(name = "estado")
 	public Byte getEstado() {
 		return this.estado;
-	}
-
-	public void setEstado(Byte estado) {
-		this.estado = estado;
-	}
-
-	@Column(name = "usuarioCreacion", nullable = false, length = 45)
-	public String getUsuarioCreacion() {
-		return this.usuarioCreacion;
-	}
-
-	public void setUsuarioCreacion(String usuarioCreacion) {
-		this.usuarioCreacion = usuarioCreacion;
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -86,8 +56,24 @@ public class Usuario extends PersistentObject {
 		return this.fechaCreacion;
 	}
 
-	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "fechaModificacion", nullable = true, length = 19)
+	public Date getFechaModificacion() {
+		return this.fechaModificacion;
+	}
+
+	public Rol getRol() {
+		return rol;
+	}
+
+	@Column(name = "usuario", unique = true, nullable = false, length = 45)
+	public String getUsuario() {
+		return this.usuario;
+	}
+
+	@Column(name = "usuarioCreacion", nullable = false, length = 45)
+	public String getUsuarioCreacion() {
+		return this.usuarioCreacion;
 	}
 
 	@Column(name = "usuarioModificacion", length = 45)
@@ -95,25 +81,41 @@ public class Usuario extends PersistentObject {
 		return this.usuarioModificacion;
 	}
 
-	public void setUsuarioModificacion(String usuarioModificacion) {
-		this.usuarioModificacion = usuarioModificacion;
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 
-	@Column(name = "fechaModificacion", length = 45)
-	public String getFechaModificacion() {
-		return this.fechaModificacion;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setFechaModificacion(String fechaModificacion) {
+	public void setEstado(Byte estado) {
+		this.estado = estado;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
-	}
-
-	public Rol getRol() {
-		return rol;
 	}
 
 	public void setRol(Rol rol) {
 		this.rol = rol;
+	}
+
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
 	}
 
 }
