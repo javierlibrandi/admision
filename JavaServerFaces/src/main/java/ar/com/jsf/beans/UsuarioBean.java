@@ -4,10 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
-import org.primefaces.event.CellEditEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -66,18 +66,8 @@ public class UsuarioBean implements Serializable {
 		this.usuarioSeleccionado = usuarioSeleccionado;
 	}
 
-	public void onCellEdit(CellEditEvent event) {
-		Object oldValue = event.getOldValue();
-		Object newValue = event.getNewValue();
 
-		if (newValue != null && !newValue.equals(oldValue)) {
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO,
-					"Cell Changed", "Old: " + oldValue + ", New:" + newValue);
-			FacesContext.getCurrentInstance().addMessage(null, msg);
-		}
-	}
 	
 	public void btnBorrarUsuario(){
-		
 	}
 }
